@@ -60,4 +60,4 @@ config that "looks right."
 All passwords and secrets = (`TamerCompany!`). 
 
 ---
-Built by [Mohammed Tamer](https://www.linkedin.com/in/mohammed-tamer-11160a41a/) · Foundations from [KAAAM Academy]([KAAAM_LINK](https://www.linkedin.com/company/kaaam))
+Built by [Mohammed Tamer](https://www.linkedin.com/in/mohammed-tamer-11160a41a/) · Foundations from [KAAAM Academy](https://www.linkedin.com/company/kaaam)
