@@ -40,6 +40,8 @@ design, staged verification, and real command-line troubleshooting as tought at 
 | Security   | Port security (sticky MAC, violation restrict), SSH-only management, local AAA, encrypted passwords |
 | Addressing | Structured VLSM addressing plan across VLANs, WAN links, and site subnets                           |
 
+last 2 I didn't complete them with the others like building VPN and so on.
+
 ## Build Process
 
 Every stage of this build was configured and verified individually before moving
