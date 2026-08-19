@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS Corp Network Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #131a22;
+      --border: #263141;
+      --text: #c9d6e3;
+      --dim: #7d8ca0;
+      --accent: #3ddc84;
+      --amber: #e8b854;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 20px 80px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 15px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 0 0 4px;
+    }
+
+    .subtitle {
+      color: var(--dim);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      border: 1px solid var(--amber);
+      color: var(--amber);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 44px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2::before {
+      content: "# ";
+      color: var(--dim);
+    }
+
+    p {
+      margin: 10px 0;
+      color: var(--text);
+    }
+
+    ul {
+      margin: 10px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      margin: 6px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--dim);
+    }
+
+    .status-list li::before {
+      content: "[x]";
+      color: var(--accent);
+      left: -2px;
+    }
+
+    .status-list.pending li::before {
+      content: "[ ]";
+      color: var(--dim);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 14px 0;
+      font-size: 0.88rem;
+    }
+
+    td,
+    th {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--panel);
+      color: var(--dim);
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    code {
+      color: var(--accent);
+      background: var(--panel);
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-size: 0.85em;
+    }
+
+    td code {
+      display: block;
+      padding: 6px 8px;
+    }
+
+    .verify-block {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--accent);
+      white-space: pre-wrap;
+    }
+
+    .links {
+      margin-top: 44px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .links a {
+      display: block;
+      margin: 6px 0;
+    }
+
+    .links a::before {
+      content: "-> ";
+      color: var(--dim);
+    }
+
+    footer {
+      margin-top: 50px;
+      color: var(--dim);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1><span class="prompt">$</span> whoami --project</h1>
+  <p class="subtitle">Tamer Topology — a multi-site enterprise network being built in Cisco Packet Tracer, one verified
+    stage at a time.</p>
+  <span class="status-badge">in progress — HQ core, access &amp; OSPF backbone all is completed</span>
+
+  <h2>about</h2>
+  <p>
+    I started learning networking with KAAAM Academy's CCNA course. After finishing the basics
+    (static routing, VLANs, ACLs, HSRP, DHCP), I wanted to build something on my own —
+    a full enterprise topology, configured and verified layer by layer.
+  </p>
+
+  <h2>topology</h2>
+  <ul>
+    <li>HQ Core — dual Layer-3 switches, inter-VLAN routing, HSRP gateway redundancy across 6 VLANs</li>
+    <li>HQ Access — port security, 802.1Q trunking with a hardened dedicated native VLAN</li>
+    <li>HQ Edge Router — connects HQ core out to the Data Center and the wider WAN</li>
+    <li>Data Center — separate site, backend servers, integrated into the OSPF backbone</li>
+    <li>Branch A / Branch B — remote sites physically deployed and addressed, awaiting WAN integration</li>
+  </ul>
+
+  <h2>build status</h2>
+  <ul class="status-list">
+    <li>HQ core &amp; access — VLANs, trunking, port security</li>
+    <li>HSRP gateway redundancy, verified active/standby failover</li>
+    <li>Data Center site integration</li>
+    <li>OSPF backbone convergence (Area 0)</li>
+  </ul>
+  <ul class="status-list pending">
+    <li>Site-to-site VPN out to Branch A / Branch B</li>
+    <li>NAT/PAT for internet-facing access</li>
+    <li>Centralized DHCP / DNS</li>
+    <li>IPv6 dual-stack overlay</li>
+  </ul>
+
+  <h2>verification, not just configuration</h2>
+  <p>Every stage was checked with real IOS output before moving to the next — not assumed to work because the commands
+    were typed.</p>
+  <div class="verify-block">show standby brief
+    show ip ospf neighbor
+    show ip route ospf
+    show interfaces trunk</div>
+
+  <h2>technologies</h2>
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Details</th>
+    </tr>
+    <tr>
+      <td>Routing</td>
+      <td>OSPF, router-ID assignment, backbone convergence</td>
+    </tr>
+    <tr>
+      <td>Redundancy</td>
+      <td>HSRP — priority/preempt tuning, active/standby verified</td>
+    </tr>
+    <tr>
+      <td>Switching</td>
+      <td>VLANs, 802.1Q trunking, hardened native VLAN, Rapid-PVST</td>
+    </tr>
+    <tr>
+  </table>
+
+  <div class="links">
+    <a href="https://github.com/Prjct5/TamerNetworkPT">GitHub repository</a>
+    <a href="">LinkedIn post</a>
+  </div>
+
+  <footer>
+    Built by <a href="https://www.linkedin.com/in/mohammed-tamer-11160a41a/">Mohammed Tamer</a> ·
+    Foundations from <a href="https://www.linkedin.com/company/kaaam">KAAAM Academy</a>
+  </footer>
+
+</body>
+
+</html>
